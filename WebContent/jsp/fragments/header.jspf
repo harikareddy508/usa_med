@@ -1,0 +1,183 @@
+
+<header class="main-header">
+	<nav class="navbar navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="<c:url value="/homePage" />" class="navbar-brand"><b>USA</b>-MD</a>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar-collapse">
+					<i class="fa fa-bars"></i>
+				</button>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<!-- Symptoms checker Div menu -->
+					<c:if test="${loggedUser!=null}">
+						<li class="dropdown user user-menu"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown"> <img
+								src="<c:url value="/resources/images/male_human_body_logo.jpg"/>"
+								class="user-image" alt="User Image"> <span
+								class="hidden-xs">Symptoms Checker</span>
+						</a>
+
+							<ul class="dropdown-menu">
+								<!-- User image -->
+								<li class="user-header">
+									<p>Health Concern On Your Mind?</p> <img
+									src="<c:url value="/resources/images/male_human_body_logo.jpg"/>"
+									class="img-thumbnail" alt="User Image">
+								</li>
+								<!-- Menu Body -->
+								<li class="user-body">
+									<p>See what your medical symptoms could mean, and learn
+										about possible conditions.</p>
+								</li>
+								<!-- Menu Footer-->
+								<li class="user-footer">
+									<div class="center-block">
+										<div class="row">
+											<div class="col-sm-offset-3 col-md-4">
+												<a href="<c:url value="/symptomChecker" />"
+													class="btn btn-warning btn-flat">Get Started</a>
+											</div>
+										</div>
+									</div>
+
+								</li>
+							</ul></li>
+						<!--/.  Symptoms checker Div menu -->
+						<li class="dropdown user user-menu"><a
+							href="<c:url value="/locateDoctor"/>"> <img
+								src="<c:url value="/resources/images/doctorlogo.jpg"/>"
+								class="user-image" alt="User Image"> <span
+								class="hidden-xs">Locate Doctor</span>
+						</a></li>
+
+
+
+						<!-- Symptoms checker Div menu -->
+						<li class="dropdown user user-menu"><a href="<c:url value="/findMedicine"/>"><img
+								src="<c:url value="/resources/images/medicine.jpg"/>"
+								class="user-image" alt="User Image"> <span
+								class="hidden-xs">Find Medicine</span>
+						</a>
+							</li>
+						<li class="dropdown user user-menu"><a
+							href="<c:url value="/locateCenter"/>"> <img
+								src="<c:url value="/resources/images/healthcenter.jpg"/>"
+								class="user-image" alt="User Image"> <span
+								class="hidden-xs">Locate Health Center</span>
+						</a></li>
+						<li class="dropdown user user-menu"><a
+							href="<c:url value="/calculateBMI"/>"> <img
+								src="<c:url value="/resources/images/bmi.jpg"/>"
+								class="user-image" alt="User Image"> <span
+								class="hidden-xs">BMI Calculator</span>
+						</a></li>
+					</c:if>
+
+
+				</ul>
+
+
+			</div>
+
+			<!-- /.navbar-collapse -->
+			<!-- Navbar Right Menu -->
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav">
+					<c:if test="${loggedUser!=null}">
+						<li class="dropdown user user-menu">
+							<!-- Menu Toggle Button --> <a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> <img
+								src="<c:url value="/resources/images/ProfileImage.jpg"/>"
+								class="user-image" alt="User Image"> <span
+								class="hidden-xs">${loggedUser.fullName}</span>
+						</a>
+							<ul class="dropdown-menu">
+								<li class="user-header"><img
+									src="<c:url value="/resources/images/ProfileImage.jpg"/>"
+									class="img-circle" alt="User Image">
+									<p>
+										<Strong>${loggedUser.fullName.toUpperCase()}</Strong><br>${loggedUser.emailId}
+									</p></li>
+								<li class="user-footer">
+									<div class="pull-right">
+										<a href="<c:url value="/logout" /> "
+											class="btn btn-default btn-flat">LOGOUT</a>
+									</div>
+									<div class="pull-left">
+										<a href="<c:url value="/myProfile" /> "
+											class="btn btn-default btn-flat">PROFILE</a>
+									</div>
+
+								</li>
+							</ul>
+						</li>
+
+					</c:if>
+
+
+					<c:if test="${loggedUser==null}">
+						<li class="dropdown user user-menu"><a
+							href="<c:url value="/login" />"> <span class="hidden-xs">LOGIN</span>
+						</a></li>
+						<li class="dropdown user user-menu"><a
+							href="<c:url value="/register"/>"> <span class="hidden-xs">REGISTER</span>
+						</a></li>
+
+					</c:if>
+				</ul>
+			</div>
+			<!-- /.navbar-custom-menu -->
+		</div>
+
+	</nav>
+
+</header>
+<c:if test="${loggedUser!=null && 'A'.equals(loggedUser.roleCd)}">
+	<div class="panel-body bg-gray" style="border: none;">
+		<div class="container " style="float: left; border: none;">
+			<span class="dropdown">
+				<button class="btn btn-warning dropdown-toggle" type="button"
+					data-toggle="dropdown">
+					DOCTORS <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="<c:url value="/addDoctor"/>">ADD </a></li>
+					<li><a href="<c:url value="/searchDoctor"/>">SEARCH </a></li>
+				</ul>
+			</span> 
+			<span class="dropdown">
+				<a class="btn btn-warning dropdown-toggle" href="<c:url value="/addSymptom"/>">SYMPTOMS </a>			
+			</span>
+			<span class="dropdown">
+				<button class="btn btn-warning dropdown-toggle" type="button"
+					data-toggle="dropdown">
+					MEDICAL CONDTION <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="<c:url value="/addMedicalCondition"/>">ADD </a></li>
+					<li><a href="<c:url value="/searchMedicalCondition"/>">SEARCH </a></li>
+				</ul>
+			</span> <span class="dropdown">
+				<button class="btn btn-warning dropdown-toggle" type="button"
+					data-toggle="dropdown">
+					MEDICINE <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="<c:url value="/medicine"/>" id="phaseBasedView">ADD </a></li>
+					<li><a href="<c:url value="/searchMedicine"/>" id="taskBasedView">SEARCH </a></li>
+				</ul>
+			</span>
+			<span class="dropdown">
+				<a class="btn btn-warning dropdown-toggle" href="<c:url value="/section"/>"> HEALTH SECTION </a>			
+			</span>
+			<span class="dropdown">
+				<a class="btn btn-warning dropdown-toggle" href="<c:url value="/configureBMI"/>"> BMI CONFIGURATION </a>			
+			</span>
+		</div>
+	</div>
+</c:if>

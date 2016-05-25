@@ -1,0 +1,85 @@
+
+<!-- Address section -->
+<div>
+	<hr>
+	<h4>
+		<strong>Health Center Information</strong>
+	</h4>
+</div>
+<!-- Health Center -->
+<div class="form-group">
+	<label for="inputEmail3" class="col-sm-4 control-label">Health
+		Center Name<span style="color: red">*</span>
+	</label>
+	<div class="col-sm-6">
+		<form:input type="text" class="form-control" id="centerName"
+			placeholder="Health Center Name" path="healthCenter.centerName"
+			maxlength="30" />
+		<span style="color: red"><form:errors
+				path="healthCenter.centerName" cssClass="error" /></span>
+	</div>
+</div>
+<div class="form-group has-feedback">
+	<label for="inputEmail3" class="col-sm-4 control-label">Address
+		Line 1<span style="color: red">*</span>
+	</label>
+	<div class="col-sm-6">
+		<form:input type="text" class="form-control" id="addrLine1"
+			placeholder="Address Line 1" path="healthCenter.address.addrLine1"
+			maxlength="30" />
+		<span style="color: red"><form:errors
+				path="healthCenter.address.addrLine1" cssClass="error" /></span> <span
+			class=" fa fa-map-marker form-control-feedback"></span>
+	</div>
+</div>
+<div class="form-group has-feedback">
+	<label for="inputEmail3" class="col-sm-4 control-label">Address
+		Line 2</label>
+	<div class="col-sm-6">
+		<form:input type="text" class="form-control" id="addrLine2"
+			placeholder="Address Line 2" path="healthCenter.address.addrLine2"
+			maxlength="30" />
+		<span style="color: red"><form:errors
+				path="healthCenter.address.addrLine2" cssClass="error" /></span> <span
+			class=" fa fa-map-marker form-control-feedback"></span>
+	</div>
+</div>
+
+<div class="form-group has-feedback">
+	<label for="inputEmail3" class="col-sm-4 control-label">State<span
+		style="color: red">*</span></label>
+	<div class="col-sm-6" id="idState">
+		<usamdTag:RTSelect elementName="healthCenter.address.state"
+			referenceTableName="RT_STATES" placeHolder="Select State"
+			code="${doctorBean.healthCenter.address.state}">
+		</usamdTag:RTSelect>
+		<span style="color: red"><form:errors
+				path="healthCenter.address.state" cssClass="error" /></span>
+	</div>
+</div>
+<div class="form-group">
+	<label for="inputEmail3" class="col-sm-4 control-label">City<span
+		style="color: red">*</span></label>
+	<div class="col-sm-6" id="idCity">
+		<form:select class="form-control" path="healthCenter.address.city"
+			maxlength="14">
+			<option value="">Select City</option>
+		</form:select>
+		<span style="color: red"><form:errors
+				path="healthCenter.address.city" cssClass="error" /></span> 
+	</div>
+</div>
+<div class="form-group has-feedback">
+	<label for="inputEmail3" class="col-sm-4 control-label">Zipcode<span
+		style="color: red">*</span></label>
+	<div class="col-sm-6">
+		<form:input type="text" class="form-control" placeholder="Zipcode" id="zipcode"
+			path="healthCenter.address.zipcode" maxlength="14" />
+		<span style="color: red"><form:errors
+				path="healthCenter.address.zipcode" cssClass="error" /></span> <span
+			class=" fa fa-map-marker form-control-feedback"></span>
+	</div>
+</div>
+
+
+<!-- ./Address section -->
